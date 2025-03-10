@@ -1,0 +1,1 @@
+Este proyecto es una app web hecha con React que muestra datos de una API pública. Usa hooks como useState y useEffect, React Router para las rutas, y un framework CSS para el diseño. Además, tiene manejo básico de errores con un componente de límite de error y se puede desplegar en Netlify
