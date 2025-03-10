@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  .encabezado {
+    background-color: #6200ea;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .contenido {
+    padding: 2rem;
+  }
+  
+  .grid-animes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  
+  .tarjeta {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .tarjeta img {
+    max-width: 100%;
+    border-radius: 4px;
+  }
+  
+  .error {
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
