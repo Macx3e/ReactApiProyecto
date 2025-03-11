@@ -13,7 +13,7 @@ const Inicio = () => {
         const respuesta = await fetch('https://api.jikan.moe/v4/top/anime');
         const datos = await respuesta.json();
         setAnimes(datos.data);
-        setFilteredAnimes(datos.data); 
+        setFilteredAnimes(datos.data);
       } catch (error) {
         setError('Error al cargar los animes');
       }
@@ -32,23 +32,35 @@ const Inicio = () => {
     setFilteredAnimes(filtrados);
   };
 
+  const resetearBusqueda = () => {
+    setSearch('');
+    setFilteredAnimes(animes);
+  };
+
   return (
-    <main className="contenido">
-      <h1 className="titulo-pagina">Explorador de Anime</h1> 
-      <input
-        type="text"
-        value={search}
-        onChange={manejarBusqueda}
-        placeholder="Buscar por nombre o género..."
-        className="buscador"
-      />
-      {error && <p className="error">{error}</p>}
+    <main className="container mt-4">
+      <h1 className="text-center mb-4">Explorador de Anime</h1>
+      <div className="d-flex justify-content-center mb-4">
+        <input
+          type="text"
+          value={search}
+          onChange={manejarBusqueda}
+          placeholder="Buscar por nombre o género..."
+          className="form-control w-50 me-2"
+        />
+        <button onClick={resetearBusqueda} className="btn btn-danger">
+          Resetear
+        </button>
+      </div>
+      {error && <p className="text-danger text-center">{error}</p>}
       {!error && filteredAnimes.length === 0 && (
-        <p className="sin-resultados">No se encontraron resultados.</p>
+        <p className="text-center text-muted">No se encontraron resultados.</p>
       )}
-      <div className="grid-animes">
+      <div className="row">
         {filteredAnimes.map((anime) => (
-          <Tarjeta key={anime.mal_id} anime={anime} />
+          <div key={anime.mal_id} className="col-lg-4 col-md-6 mb-4">
+            <Tarjeta anime={anime} />
+          </div>
         ))}
       </div>
     </main>
